@@ -1,0 +1,85 @@
+# La app de MÚSICA (pista S7) en el PC: aquí el DSP no contesta, así que suena por el zumbador (la traza del
+# final dice qué notas). La polifonía por PCM se prueba aparte con W600_PCM=1 (make probar-musica).
+restablecer
+# (28-oct) La app Música es ya la de la red (musica.sen, hasta el 28-oct ytmusic.sen: busca y toca por el puente; sin él, lo descargado). La Walkman la abre
+tecla walkman
+espera 400
+captura 00_walkman_desde_el_standby_abre_musica
+abierta walkman
+tecla atras
+espera 300
+# La Música de ANTES (la lista de pistas: los MIDI de casa y la tarjeta) está RETIRADA, pero el SERVICIO de debajo (shell/musica.c:
+# volumen, pausa, la nota del standby, Play desde otra app) es el mismo que usa la de ahora: se sigue probando con ella, subida a la
+# Memoria y abierta por su ruta (como haría el usuario que la quiera; en el menú no sale: se llama igual que la de fábrica)
+memoria-app walkman.sen
+sen /memoria/apps/walkman.sen
+espera 400
+captura 01_la_de_antes_abierta_por_su_ruta
+tecla ok
+espera 2000
+captura 02_sonando_primera_pista
+tecla vol-
+tecla vol-
+espera 300
+captura 03_volumen_2
+tecla ok
+espera 600
+captura 04_pausa
+tecla ok
+espera 500
+tecla der
+espera 1500
+captura 05_siguiente_pista
+tecla sel_izq
+espera 300
+captura 06_opciones
+tecla abajo
+tecla ok
+espera 300
+captura 07_repetir_esta_pista
+tecla sel_izq
+espera 200
+tecla abajo
+tecla abajo
+tecla abajo
+tecla ok
+espera 300
+captura 08_detalles
+tecla ok
+espera 200
+tecla atras
+espera 500
+captura 09_standby_con_la_nota_en_la_barra
+tecla sel_izq
+espera 400
+tecla 3
+espera 600
+captura 10_reloj_y_la_musica_sigue
+tecla play
+espera 600
+captura 11_play_la_pone_en_pausa_desde_el_reloj
+tecla play
+espera 400
+sen /memoria/apps/walkman.sen
+espera 600
+captura 12_vuelve_a_la_app_de_antes
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla ok
+espera 300
+captura 13_un_mp3_no_se_puede_tocar
+tecla ok
+espera 200
+tecla c
+espera 400
+captura 14_parada
+tecla atras
+tecla atras
+tecla atras
+espera 2500
+sonido
+medidas fin

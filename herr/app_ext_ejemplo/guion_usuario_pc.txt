@@ -1,0 +1,26 @@
+# La «partida» de la app de ejemplo en la zona de usuario, en el PC (pista S6). Dos veces seguidas con el mismo fichero:
+#   make pc APPS_EXT=herr/app_ext_ejemplo
+#   W600_USR=tmp/usr_pc.bin ./build/con_ext/sistema_pc herr/app_ext_ejemplo/guion_usuario_pc.txt evidencia/pc_usuario   (x2)
+# La UART (stderr) dice cuántas entradas había: 0 y 1 la primera vez, 2 y 3 la segunda.
+espera 400
+tecla sel_izq
+espera 500
+tecla #
+espera 600
+pulsa atras
+espera 1500
+suelta atras
+espera 600
+tecla #
+espera 600
+pulsa atras
+espera 1500
+suelta atras
+espera 600
+tecla 9
+espera 500
+tecla arriba
+tecla arriba
+espera 300
+captura u01
+medidas fin

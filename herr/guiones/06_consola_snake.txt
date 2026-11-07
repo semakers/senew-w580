@@ -1,0 +1,66 @@
+# Consola serie (recibir por sondeo, enviar) y Serpiente (animación, giro, turbo con tecla mantenida)
+# (APX) la Serpiente es un JUEGO: no viene de fábrica. Se sube a la Memoria (/memoria/apps), como haría el usuario, y el menú la
+# ve al volver al standby (sale detrás de las de fábrica)
+memoria-app serpiente.sen
+# (EST3) la Consola ya no es de fábrica: la sube el usuario
+memoria-app consola.sen
+# (28-oct) con Cámara, YT Music y Grabadora el menú de fábrica son 14 celdas: las dos del usuario van a la lista «Apps».
+# Se abren por su ruta (lo mismo que elegirlas en la lista); el lanzador y la lista los prueba 19_lanzador
+espera 1100
+tecla sel_izq
+espera 300
+sen /memoria/apps/consola.sen
+captura 01_consola
+serie ESP32-C3 listo\nIP 192.168.4.1\n
+espera 100
+captura 02_recibido
+tecla 4
+tecla 4
+tecla 6
+tecla 6
+tecla 6
+tecla 5
+tecla 5
+tecla 5
+tecla 2
+espera 1000
+captura 03_tecleando
+tecla ok
+espera 100
+serie eco: hola\n
+espera 100
+captura 04_enviado_y_eco
+tecla sel_izq
+tecla ok
+espera 100
+serie OK\n
+espera 100
+captura 05_at_ok
+tecla atras
+espera 300
+sen /memoria/apps/serpiente.sen
+espera 1000
+captura 06_snake
+tecla abajo
+espera 600
+tecla izq
+espera 400
+captura 07_snake_girada
+pulsa izq
+espera 300
+captura 08_snake_turbo
+suelta izq
+tecla ok
+espera 100
+captura 09_snake_pausa
+tecla ok
+tecla arriba
+espera 5000
+captura 10_snake_fin
+tecla ok
+espera 500
+captura 11_snake_otra
+tecla atras
+tecla atras
+espera 300
+medidas fin

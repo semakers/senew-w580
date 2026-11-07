@@ -1,0 +1,193 @@
+# Energía, bloqueo del teclado, tapa giratoria y tecla de encendido (pista S3).
+# De fábrica: atenuar a los 15 s, apagar a los 30 s, bloqueo automático NO, la tapa apaga SÍ.
+medidas arranque
+bateria 72
+espera 400
+captura 01_standby_con_bateria
+
+# --- atenuar y apagar por inactividad -------------------------------------------------------------
+espera 16000
+captura 02_atenuada_a_los_16s
+espera 16000
+captura 03_apagada_a_los_32s
+# la primera tecla solo enciende la pantalla: NO abre el menú
+tecla ok
+espera 500
+captura 04_la_primera_tecla_solo_enciende
+# la segunda sí
+tecla ok
+espera 400
+captura 05_menu
+tecla atras
+espera 400
+
+# --- bloqueo con * y selección izquierda (desde el standby) ---------------------------------------
+tecla *
+tecla sel_izq
+espera 400
+captura 06_bloqueado
+# cualquier tecla insiste con la ayuda, y NO llega a las apps
+tecla 5
+espera 300
+captura 07_insiste
+espera 3000
+# desbloquear con la misma combinación
+tecla *
+tecla sel_izq
+espera 400
+captura 08_desbloqueado_vuelve_al_standby
+
+# --- la tecla dedicada de Bloqueo -----------------------------------------------------------------
+tecla bloqueo
+espera 400
+captura 09_bloqueado_con_la_tecla
+tecla bloqueo
+espera 400
+captura 10_desbloqueado_con_la_tecla
+
+# --- la tapa --------------------------------------------------------------------------------------
+tapa cerrada
+espera 400
+captura 11_tapa_cerrada_pantalla_apagada
+# con la tapa cerrada ninguna tecla vale
+tecla ok
+tecla ok
+espera 400
+captura 12_tapa_cerrada_las_teclas_no_valen
+tapa abierta
+espera 400
+captura 13_tapa_abierta_vuelve
+
+# --- la tecla de encendido: su menú ---------------------------------------------------------------
+tecla encendido
+espera 400
+captura 14_menu_de_encendido
+tecla abajo
+espera 300
+captura 15_menu_de_encendido_foco
+# «Apagar la pantalla» (la cuarta)
+tecla abajo
+tecla abajo
+tecla ok
+espera 500
+captura 16_pantalla_apagada_a_mano
+tecla ok
+espera 500
+captura 17_encendida_otra_vez
+
+# --- batería baja y cargador (S7: en mV, sondeo cada 10 s, media de dos; el cargador NO carga) ----
+bateria 3480
+espera 21000
+captura 18_bateria_baja
+tecla ok
+espera 300
+cargador 1
+espera 1200
+captura 19_cargador_no_carga
+tecla ok
+espera 400
+captura 19b_icono_enchufe_tachado
+bateria 4100
+espera 1200
+captura 20_casi_llena
+cargador 0
+espera 400
+
+# --- bloqueo automático al apagarse la pantalla ---------------------------------------------------
+# se enciende desde Ajustes: Ajustes está en el menú con «*»
+tecla sel_izq
+espera 400
+tecla *
+espera 600
+captura 21_ajustes
+medidas ajustes abiertos
+
+# --- la salud del sistema (filas nuevas al final de Sistema) --------------------------------------
+tecla sel_der
+espera 400
+tecla 9
+espera 600
+# 37 veces abajo: las filas de energía y robustez están al final de la lista
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+espera 600
+captura 22_sistema_salud
+tecla atras
+espera 400
+
+# --- los ajustes de energía: apagar a los 5 s y bloqueo automático --------------------------------
+tecla *
+espera 600
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+espera 300
+captura 23_ajustes_energia
+# «Apagar la pantalla»: 30 s -> 1 min -> 2 min -> nunca -> 5 s
+tecla abajo
+tecla ok
+tecla ok
+tecla ok
+tecla ok
+espera 400
+captura 24_apagar_a_los_5s
+# «Bloqueo automático»: no -> sí
+tecla abajo
+tecla ok
+espera 400
+captura 25_bloqueo_automatico_si
+# fuera de Ajustes y fuera del menú
+tecla sel_der
+espera 400
+tecla sel_der
+espera 400
+# a los 5 s de no tocar nada: pantalla apagada y teclado bloqueado
+espera 7000
+captura 26_apagada_y_bloqueada
+tecla ok
+espera 500
+captura 27_al_despertar_sale_el_candado
+tecla 5
+espera 300
+captura 28_una_tecla_no_la_abre
+tecla *
+tecla sel_izq
+espera 500
+captura 29_desbloqueada
+medidas fin

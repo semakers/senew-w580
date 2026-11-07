@@ -1,0 +1,12 @@
+Sistema del W580 - sistema de ficheros propio (W6FS)
+
+Este contenido es nuestro: los fondos y las imagenes estan dibujados por programa
+(herr/hacer_contenido.py) y la imagen del sistema de ficheros la construye herr/hacer_fs.py
+a partir de la carpeta fs_propio/.
+
+/fondos     fondos de pantalla (PNG y JPEG de 240 x 320)
+/imagenes   imagenes de prueba: PNG con alfa, GIF animado, JPEG grande (se ve reducido)
+/docs       estos textos
+/original   el sistema de ficheros de fabrica del telefono, si esta en la flash (solo lectura)
+
+Lo que cambia (ajustes, notas, alarma) no vive aqui sino en el almacen persistente de la NOR.

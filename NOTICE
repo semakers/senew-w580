@@ -1,0 +1,80 @@
+senew-w580 — NOTICE
+====================
+
+senew (this repository) is free software: you can redistribute it and/or modify it under the terms of the GNU General
+Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later
+version. See LICENSE. Copyright (C) 2026 semakers and the senew contributors.
+
+senew es software libre: puedes redistribuirlo y/o modificarlo bajo los términos de la GNU General Public License publicada
+por la Free Software Foundation, versión 3 o (a tu elección) cualquier versión posterior. Ver LICENSE.
+
+
+1. Third-party material included in this repository / Material de terceros incluido
+-------------------------------------------------------------------------------------
+
+* Roboto (The Roboto Project Authors), SIL Open Font License 1.1 — rasterised at build time of the development tree into
+  ui/dis_fuente_datos.c (herr/diseno/hacer_fuente.py). License text: docs/licencias/roboto_OFL.txt.
+* Material Symbols Rounded (Google), Apache License 2.0 — the glyphs used by the system, rasterised into
+  ui/dis_simbolos_datos.c (herr/diseno/hacer_simbolos.py). License text: docs/licencias/material_symbols_LICENSE.txt.
+* fs_propio/apps/*.sen — the factory utilities (calculator, notes, clock…), built from their own public repositories
+  (https://github.com/semakers/senew-app-*), MIT License.
+
+Everything else in this repository was written for senew.
+
+
+2. Third-party software NOT included / Software de terceros que NO se incluye
+-------------------------------------------------------------------------------
+
+* BTstack (BlueKitchen GmbH, https://github.com/bluekitchen/btstack). senew's Bluetooth service is built on it.
+  herr/traer_btstack.sh downloads it into bt/terceros/btstack (a fixed commit) and applies bt/parches/*.patch, which, being
+  modifications of BTstack, are under BTstack's license. BTstack's license is BSD-style with an additional clause:
+  «Any redistribution, use, or modification is done solely for personal benefit and not for any commercial purpose or for
+  monetary gain.» For commercial use, BlueKitchen offers commercial licenses. Building with BT=0 leaves BTstack out.
+
+  BTstack (BlueKitchen GmbH). El servicio Bluetooth de senew se apoya en ella. herr/traer_btstack.sh la descarga en
+  bt/terceros/btstack (un commit fijo) y le aplica bt/parches/*.patch, que, por modificar BTstack, quedan bajo su licencia.
+  La licencia de BTstack es tipo BSD con una cláusula más: uso, redistribución y modificación solo en beneficio personal y no
+  con fines comerciales. Para uso comercial, BlueKitchen ofrece licencias comerciales. Con BT=0 se compila sin BTstack.
+
+
+3. Additional permission under GNU GPL version 3 section 7 (BTstack)
+---------------------------------------------------------------------
+   [PENDING CONFIRMATION by the copyright holder — PENDIENTE DE CONFIRMAR por el autor]
+
+If you modify this Program, or any covered work, by linking or combining it with BTstack (or a modified version of BTstack,
+such as BTstack with the patches in bt/parches/), containing parts covered by the terms of the BTstack license, the licensors
+of this Program grant you additional permission to convey the resulting work. Corresponding Source for a non-source form of
+such a combination shall include the source code for the parts of BTstack used as well as that of the covered work.
+This permission does not change the license of BTstack: BTstack, and the parts of the combined work that come from it,
+remain under the BTstack license, including its non-commercial clause.
+
+Permiso adicional según la sección 7 de la GNU GPL versión 3: si modificas este Programa, o cualquier obra cubierta,
+enlazándolo o combinándolo con BTstack (o una versión modificada de BTstack, como BTstack con los parches de bt/parches/), los
+licenciantes de este Programa te dan permiso adicional para distribuir la obra resultante. El Código Fuente Correspondiente de
+una forma no fuente de esa combinación incluirá el código fuente de las partes de BTstack usadas además del de la obra cubierta.
+Este permiso no cambia la licencia de BTstack: BTstack, y lo que de ella haya en la obra combinada, siguen bajo la licencia de
+BTstack, incluida su cláusula de uso no comercial.
+
+
+4. Data read from the phone / Datos que se leen del teléfono
+--------------------------------------------------------------
+
+senew does not contain firmware, data, graphics, fonts or sounds of the phone's manufacturer. At run time it reads some
+files of the phone's own factory file system (for example the Bluetooth chip's patch and settings files, acoustic settings,
+light effects) and uses them in place. Some tables that the development tree generates from such files are replaced here by
+empty stand-ins (hal/lcd_paneles_stub.h, hal/fabricante_ausente.c, shell/escritorio_rec.c); herr/hacer_paneles.py and
+herr/camara/gen_tabla_c.py generate the screen and camera tables from the files of YOUR OWN phone. Do not redistribute
+what you generate from your phone: it is the manufacturer's data.
+
+senew no contiene firmware, datos, gráficos, letras ni sonidos del fabricante del teléfono. Mientras funciona lee algunos
+ficheros del propio FS de fábrica del teléfono (por ejemplo el parche y los ajustes del chip Bluetooth, los ajustes acústicos,
+los efectos de luz) y los usa tal cual. Unas tablas que el árbol de desarrollo genera a partir de esos ficheros se sustituyen
+aquí por sustitutos vacíos; herr/hacer_paneles.py y herr/camara/gen_tabla_c.py generan las de la pantalla y la cámara desde
+los ficheros de TU teléfono. No redistribuyas lo que generes desde tu teléfono: son datos del fabricante.
+
+
+5. Trademarks / Marcas
+-----------------------
+
+Sony Ericsson, W580i, Walkman and other names are trademarks of their respective owners. They are used only to say which
+hardware this software is for. This project is not affiliated with, endorsed by or supported by them.

@@ -1,0 +1,30 @@
+# (pista M2) El icono propio de una app externa en el menú (3D y Clásico) y su MELODÍA por el generador de tonos:
+# suena con la app, CEDE el zumbador a un aviso del sistema (aquí, batería baja) y sigue, y CALLA al salir.
+#   make pc APPS_EXT=herr/app_ext_ejemplo B=build/con_ext
+#   ./build/con_ext/sistema_pc herr/app_ext_ejemplo/guion_melodia_pc.txt evidencia/pc_app_ext_melodia
+# La orden «sonido» del final saca la traza del generador: 523/659/784 son de la app; 784+523 seguidas (180 y 400 ms),
+# el aviso de batería del sistema; durante el aviso no hay ninguna nota de la app, y tras «sale» no hay ninguna más.
+espera 400
+tecla sel_izq
+espera 600
+captura m01
+tecla abajo
+tecla abajo
+tecla abajo
+tecla der
+tecla der
+espera 600
+captura m02
+tecla ok
+espera 5000
+captura m03
+bateria 4
+espera 6000
+captura m04
+pulsa atras
+espera 1500
+suelta atras
+espera 2500
+captura m05
+sonido
+medidas fin

@@ -1,0 +1,131 @@
+# LAS LUCES (pista S5) en el PC: el motor (api/luces.c) es el mismo código que en el teléfono; las luces son las
+# simuladas de plat/hw_pc.c y «luces» las vuelca a la salida (pantalla, teclados, deslizador y las dos laterales tal
+# como se «verían» ahora, con el PWM del chip modelado). Aquí no hay FS de fábrica: los efectos son los de casa.
+# (Con el FS original: herr/guiones_fs/2_fabrica.txt, make probar-fsfab.)
+espera 300
+luces  standby (estilo Walkman: naranja)
+# --- el latido al mover el foco del menú: 40 % durante 160 ms -------------------------------------------------
+tecla sel_izq
+espera 900
+luces  menu abierto
+tecla der
+espera 40
+luces  40 ms tras mover el foco
+espera 300
+luces  340 ms tras mover el foco
+# --- el color sigue al estilo del menú: Cristal (2) y Neón (3) --------------------------------------------------
+menu 2 2 3 0
+espera 700
+luces  estilo Cristal
+menu 3 2 3 0
+espera 700
+luces  estilo Neon
+menu 1 0 3 0
+espera 700
+luces  estilo Walkman
+# --- Ajustes -> Luces (tres filas hacia arriba desde la primera) ------------------------------------------------
+app Ajustes
+tecla arriba
+tecla arriba
+tecla arriba
+captura 01_ajustes_fila_luces
+tecla ok
+espera 300
+captura 02_luces
+# el color a mano: «blanco» (der) y «naranja» (der)
+tecla abajo
+tecla der
+espera 700
+luces  color blanco
+captura 03_color_blanco
+tecla izq
+espera 700
+# --- «Arcoíris» (fila 6): rojo, naranja, amarillo, la ola de los teclados, verde… -------------------------------
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla ok
+espera 200
+luces  arcoiris a los 200 ms (rojo subiendo)
+espera 500
+luces  arcoiris a los 700 ms (rojo)
+captura 04_arcoiris_rojo
+espera 700
+luces  arcoiris a los 1400 ms (rojo bajando)
+espera 4600
+luces  arcoiris a los 6000 ms
+espera 600
+luces  arcoiris a los 6600 ms (tras la ola)
+captura 05_arcoiris_tras_la_ola
+# se CIERRA el deslizador con el efecto en marcha: en el PC cerrar apaga la pantalla (aj.tapa_apaga) y el efecto pierde las luces
+tapa cerrada
+espera 9000
+luces  cerrado: pantalla dormida, efecto fuera
+tapa abierta
+espera 500
+luces  deslizador abierto otra vez
+# --- «Baliza» (fila 7) con RGB fijo y RGB apagar; y pararla -------------------------------------------------------
+tecla abajo
+tecla ok
+espera 60
+luces  baliza: destello
+espera 120
+luces  baliza: apagada
+captura 06_baliza
+tecla arriba
+tecla arriba
+tecla arriba
+tecla ok
+espera 300
+luces  parado
+# --- laterales apagadas (fila 1) y encendidas otra vez -------------------------------------------------------------
+tecla arriba
+tecla arriba
+tecla arriba
+tecla ok
+espera 500
+luces  laterales apagadas
+captura 07_laterales_apagadas
+tecla ok
+espera 700
+luces  laterales encendidas
+# --- «Respirar» (fila 5) y salir con él sonando: se para al salir --------------------------------------------------
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla ok
+espera 1200
+luces  respirar a los 1200 ms
+tecla atras
+espera 400
+luces  fuera de Luces
+tecla atras
+espera 300
+tecla atras
+espera 300
+# --- la música: naranja y respirando; los pasos: destello verde cada 10 --------------------------------------------
+tecla play
+espera 600
+luces  musica a los 600 ms
+espera 1300
+luces  musica a los 1900 ms
+tecla play
+espera 1500
+luces  musica parada
+andar 18 20
+espera 9000
+luces  andando 9 s
+pasos
+andar 0 0
+# --- atenuada y dormida: las laterales y los teclados, fuera; y ni una orden más -----------------------------------
+espera 16000
+luces  atenuada
+espera 16000
+luces  dormida
+espera 20000
+luces  dormida 20 s despues
+tecla ok
+espera 600
+luces  despierta

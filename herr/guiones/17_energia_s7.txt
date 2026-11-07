@@ -1,0 +1,80 @@
+# (S7) Batería, cargador y apagado: docs/bateria.md §8.A, docs/sistema.md §15.
+# 1) la pantalla «Energía (PMU)» de Sistema (solo lectura, refresco 1 s)
+medidas arranque
+energia al-arrancar
+tecla sel_izq
+espera 300
+app Sistema
+espera 1100
+tecla ok
+espera 1200
+captura 01_energia_pmu
+tecla abajo 
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+espera 1200
+captura 02_energia_pmu_abajo
+# 2) aparece el cargador con esa pantalla abierta: aviso «NO carga», y la pantalla lo enseña
+cargador 1
+espera 1200
+captura 03_cargador_conectado
+energia con-cargador
+tecla ok
+espera 1200
+captura 04_energia_pmu_con_cargador
+tecla atras
+espera 300
+tecla atras
+espera 300
+tecla atras
+espera 400
+captura 05_standby_enchufe_tachado
+# 3) con el cargador puesto se SIGUE vigilando: la batería baja -> aviso (una vez)
+bateria 3480
+espera 21000
+captura 06_bateria_baja_con_cargador
+energia baja
+tecla ok
+espera 300
+# 4) apagar con el cargador puesto y un PMU que no corta (apagable 2): APAGADO EN FALSO, a oscuras
+apagable 2
+tecla encendido
+espera 400
+captura 07_menu_encendido
+tecla ok
+espera 4000
+captura 08_apagado_en_falso_a_oscuras
+energia en-falso
+# una tecla: se enciende la pantalla y se repite el aviso; nada más responde
+tecla 5
+espera 600
+captura 09_en_falso_tecla_repite_el_aviso
+tecla ok
+tecla sel_izq
+espera 600
+captura 10_en_falso_no_responde_nada_mas
+energia en-falso-tras-teclas
+# la pantalla se vuelve a apagar sola
+espera 40000
+captura 11_en_falso_a_oscuras_otra_vez
+# 5) quitan el cargador: ahora sí se apaga (apagable 1) y el guion acaba ahí
+apagable 1
+cargador 0
+espera 3000
+captura NO_DEBE_EXISTIR_tras_apagar
+energia NO-DEBE-SALIR

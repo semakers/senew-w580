@@ -1,0 +1,16 @@
+# standby -> menú -> cada entrada
+espera 100
+captura 01_standby
+espera 2000
+captura 02_standby_2s
+tecla sel_izq
+espera 400
+captura 03_menu
+tecla der
+tecla abajo
+espera 300
+captura 04_menu_foco
+medidas menu
+tecla atras
+espera 100
+captura 05_vuelta

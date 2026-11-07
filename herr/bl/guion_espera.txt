@@ -1,0 +1,4 @@
+espera 4
+captura 00_arranque
+espera 110
+captura 01_tras_reinicio

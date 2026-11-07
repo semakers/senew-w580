@@ -1,0 +1,28 @@
+# El mecanismo de app EXTERNA a pantalla completa (docs/sistema.md §11), con la app de ejemplo.
+#   make pc APPS_EXT=herr/app_ext_ejemplo
+#   ./build/sistema_pc herr/app_ext_ejemplo/guion_pc.txt evidencia/pc_app_ext
+espera 400
+tecla sel_izq
+espera 500
+captura 01_menu_con_la_externa
+# la externa ocupa la 12.ª celda (atajo «#»): ha desplazado a Multimedia
+tecla #
+espera 200
+captura 02_pantalla_completa_girada
+espera 200
+pulsa 5
+espera 200
+captura 03_una_tecla_en_crudo
+pulsa 1
+espera 200
+captura 04_dos_teclas_a_la_vez
+suelta 5
+suelta 1
+espera 100
+# se sale manteniendo Atrás 1 s
+pulsa atras
+espera 1500
+suelta atras
+espera 600
+captura 05_vuelta_limpia_al_menu
+medidas fin

@@ -1,0 +1,24 @@
+# compilaciones y salidas
+build/
+build*/
+tmp/
+evidencia/
+*.o
+*.elf
+__pycache__/
+# terceros que NO se distribuyen (herr/traer_btstack.sh)
+bt/terceros/
+# lo que cada uno genera desde SU teléfono (datos del fabricante: no se publican)
+hal/lcd_paneles.h
+hal/camara_w580_tab.c
+hal/dsp_w580_img*.c
+hal/mp3_w580_dat.c
+hal/mp3_w580_apfdat.c
+*.dat
+*.ssw
+*.fbn
+*.babe
+# nunca
+.env
+.env.*
+*.pem

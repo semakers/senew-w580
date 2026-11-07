@@ -1,0 +1,28 @@
+BTstack (BlueKitchen GmbH) — parche de senew sobre src/hci.c. Este parche modifica BTstack y, como BTstack, queda bajo SU licencia
+(bt/terceros/btstack/LICENSE: BSD con cláusula de uso no comercial). Lo aplica herr/traer_btstack.sh.
+
+diff --git a/src/hci.c b/src/hci.c
+index 5bf52b0..cfaf2f6 100644
+--- a/src/hci.c
++++ b/src/hci.c
+@@ -211,6 +211,7 @@ static void gap_inquiry_explode(uint8_t *packet, uint16_t size);
+ static int  hci_power_control_on(void);
+ static void hci_power_control_off(void);
+ static void hci_state_reset(void);
++static void hci_discard_connections(void);
+ static void hci_halting_timeout_handler(btstack_timer_source_t * ds);
+ static void hci_schedule_transport_packet_sent(void);
+ static void hci_emit_disconnection_complete(hci_con_handle_t con_handle, uint8_t reason);
+@@ -5578,6 +5579,12 @@ void hci_register_iso_packet_handler(btstack_packet_handler_t handler){
+ #endif
+ 
+ static void hci_state_reset(void){
++    // (W580, 3-nov-2026) lo que quedó a medias de antes (una conexión en SENT_DISCONNECT sin su Disconnection_Complete:
++    // el apagado se rindió en HALTING) seguía ocupando el pool aunque aquí se vaciara la lista; con MAX_NR_HCI_CONNECTIONS 1
++    // ninguna conexión nueva salía (0x56, BTSTACK_MEMORY_ALLOC_FAILED). Se descartan como al apagar, con su
++    // Disconnection_Complete, para que L2CAP y RFCOMM suelten también lo suyo.
++    hci_discard_connections();
++
+     // no connections yet
+     hci_stack->connections = NULL;
+ 

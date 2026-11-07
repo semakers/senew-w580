@@ -1,0 +1,25 @@
+# (pista BT) Ajustes -> «Bluetooth» en el PC: aquí NO hay radio (bt_driver() débil = NULL), así que la fila dice «sin Bluetooth»,
+# la pantalla lo dice y «Opciones» solo avisa. Nada más cambia (docs/sistema.md §30). La fila es la 5.ª hacia arriba desde la primera.
+espera 1100
+tecla sel_izq
+espera 300
+app Ajustes
+espera 200
+tecla arriba
+tecla arriba
+tecla arriba
+tecla arriba
+tecla arriba
+espera 100
+captura 01_ajustes_fila_bluetooth
+tecla ok
+espera 300
+captura 02_bluetooth_sin_radio
+tecla sel_izq
+espera 300
+captura 03_opciones_sin_radio
+tecla ok
+espera 300
+tecla atras
+espera 400
+captura 04_de_vuelta_en_ajustes

@@ -1,0 +1,4 @@
+espera 5
+captura 00_tras_arranque
+espera 10
+captura 01_estable

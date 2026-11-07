@@ -1,0 +1,29 @@
+# El estilo ESCRITORIO (shell/menu_escritorio.c) en el PC, con la CRUCETA: la selección azul entre los accesos (Doom, Música, Videos), el
+# botón Inicio al bajar del todo, el menú Inicio y su columna derecha, y que con otro estilo vuelve la pantalla de la hora.
+#   make pc && build/sistema_pc herr/guiones_escritorio/e1_escritorio.txt evidencia/pc_escritorio
+acel 125 134
+espera 1100
+menu 5 0 3 0
+espera 900
+captura 01_escritorio
+tecla abajo
+espera 400
+captura 02_musica
+tecla abajo
+tecla abajo
+espera 500
+captura 03_abajo_del_todo_inicio
+tecla ok
+espera 500
+captura 04_menu_inicio
+tecla abajo
+tecla abajo
+tecla der
+espera 400
+captura 05_columna_derecha
+tecla atras
+espera 400
+captura 06_cerrado
+menu 1 0 3 0
+espera 900
+captura 07_otro_estilo_vuelve_la_hora

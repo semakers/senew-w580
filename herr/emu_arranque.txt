@@ -1,0 +1,4 @@
+# El arranque normal en el emulador: espera a senew, quita el menú de encendido (tecla de selección derecha) y deja ver el inicio.
+espera 12
+tecla sel_der
+espera 3

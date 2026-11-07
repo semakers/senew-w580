@@ -1,0 +1,21 @@
+# 20 000 teclas al azar por todo el sistema: sin desajustes de pintado, sin fugas, ASan/UBSan limpios
+espera 2000
+medidas antes
+azar 20000
+tecla atras
+tecla atras
+tecla atras
+tecla atras
+tecla atras
+tecla atras
+tecla atras
+tecla atras
+tecla atras
+tecla atras
+espera 2000
+restablecer
+espera 2000
+medidas despues (en el standby)
+# (S6) lo que el mono haya dejado en Mis archivos (notas guardadas como archivo…): tiene que ser una zona sana
+usuario tras el azar
+captura standby_tras_el_azar

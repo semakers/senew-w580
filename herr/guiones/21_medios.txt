@@ -1,0 +1,54 @@
+# (28-oct) EL MENÚ DE MEDIOS (shell/menu_medios.c, docs/menu3d.md §10): el lineal de Sony con los iconos 3D, la ola y las partículas.
+# «menu 4 1 3 0» = estilo Medios, efecto vaivén (anima). Se recorren las categorías, se abre una app y se vuelve, y «Juegos» sin
+# tarjeta da su aviso. Cada cuadro, el banco compara el panel con un repintado completo (0 desajustes).
+menu 4 1 3 0
+espera 1100
+tecla sel_izq
+espera 500
+captura 01_musica
+tecla abajo
+espera 400
+captura 02_grabadora
+tecla arriba
+espera 300
+tecla ok
+espera 600
+captura 03_musica_abierta
+abierta musica
+tecla atras
+espera 600
+captura 04_vuelve
+tecla der
+espera 400
+captura 05_juegos
+tecla ok
+espera 300
+captura 06_juegos_sin_tarjeta
+tecla ok
+espera 200
+tecla der
+espera 400
+tecla abajo
+tecla abajo
+tecla abajo
+espera 400
+captura 07_organizador
+tecla der
+espera 400
+captura 08_der_en_la_ultima_no_pasa_sin_apps_del_usuario_no_hay_categoria_apps
+tecla izq
+tecla izq
+tecla izq
+tecla izq
+tecla izq
+espera 500
+captura 09_ajustes
+tecla 5
+espera 400
+abierta calculadora_por_atajo
+tecla sel_der
+espera 500
+menu 4 2 3 0
+espera 300
+captura 10_quieto
+abierta fin

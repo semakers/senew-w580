@@ -1,0 +1,6 @@
+espera 3
+captura 00_arranque
+espera 20
+captura 01_mitad
+espera 80
+captura 02_tras_instalar

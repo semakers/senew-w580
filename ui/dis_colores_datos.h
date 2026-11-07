@@ -1,0 +1,61 @@
+/* GENERADO por herr/diseno/hacer_colores.py FF7800: no editar. Semilla #FF7800: matiz 49.1, croma 71.7 (CAM16). */
+#define DIS_M3_CLARO { \
+    .primario = RGB(140, 82, 44), /* #8C4F27 */ \
+    .sobre_primario = RGB(252, 254, 252), /* #FFFFFF */ \
+    .contenedor_primario = RGB(252, 218, 196), /* #FFDBC9 */ \
+    .sobre_contenedor_primario = RGB(52, 18, 4), /* #331200 */ \
+    .secundario = RGB(116, 90, 76), /* #765847 */ \
+    .contenedor_secundario = RGB(252, 218, 196), /* #FFDBC9 */ \
+    .sobre_contenedor_secundario = RGB(44, 22, 12), /* #2B160A */ \
+    .terciario = RGB(100, 98, 52), /* #626033 */ \
+    .contenedor_terciario = RGB(228, 230, 172), /* #E9E5AB */ \
+    .sobre_contenedor_terciario = RGB(36, 30, 4), /* #1E1D00 */ \
+    .error = RGB(188, 26, 28), /* #BA1A1A */ \
+    .sobre_error = RGB(252, 254, 252), /* #FFFFFF */ \
+    .contenedor_error = RGB(252, 218, 212), /* #FFDAD6 */ \
+    .sobre_contenedor_error = RGB(68, 2, 4), /* #410001 */ \
+    .superficie = RGB(252, 246, 244), /* #FFF8F5 */ \
+    .sobre_superficie = RGB(36, 26, 28), /* #221A15 */ \
+    .sobre_superficie_variante = RGB(84, 70, 60), /* #52443C */ \
+    .superficie_contenedor_minimo = RGB(252, 254, 252), /* #FFFFFF */ \
+    .superficie_contenedor_bajo = RGB(252, 242, 236), /* #FFF1EB */ \
+    .superficie_contenedor = RGB(252, 234, 220), /* #FCEAE2 */ \
+    .superficie_contenedor_alto = RGB(244, 230, 220), /* #F6E5DD */ \
+    .superficie_contenedor_maximo = RGB(236, 222, 212), /* #F0DFD7 */ \
+    .contorno = RGB(132, 118, 108), /* #85746B */ \
+    .contorno_variante = RGB(212, 194, 180), /* #D7C2B8 */ \
+    .superficie_inversa = RGB(60, 46, 44), /* #382E29 */ \
+    .sobre_superficie_inversa = RGB(252, 238, 228), /* #FFEDE5 */ \
+    .primario_inverso = RGB(252, 182, 140), /* #FFB68C */ \
+    .velo = RGB(4, 2, 4), /* #000000 */ \
+}
+#define DIS_M3_OSCURO { \
+    .primario = RGB(252, 182, 140), /* #FFB68C */ \
+    .sobre_primario = RGB(84, 34, 4), /* #532200 */ \
+    .contenedor_primario = RGB(108, 58, 20), /* #6F3812 */ \
+    .sobre_contenedor_primario = RGB(252, 218, 196), /* #FFDBC9 */ \
+    .secundario = RGB(228, 190, 172), /* #E5BFAA */ \
+    .contenedor_secundario = RGB(92, 66, 52), /* #5C4131 */ \
+    .sobre_contenedor_secundario = RGB(252, 218, 196), /* #FFDBC9 */ \
+    .terciario = RGB(204, 202, 148), /* #CCC992 */ \
+    .contenedor_terciario = RGB(76, 74, 36), /* #4A481D */ \
+    .sobre_contenedor_terciario = RGB(228, 230, 172), /* #E9E5AB */ \
+    .error = RGB(252, 178, 172), /* #FFB4AB */ \
+    .sobre_error = RGB(108, 2, 12), /* #690005 */ \
+    .contenedor_error = RGB(148, 2, 12), /* #93000A */ \
+    .sobre_contenedor_error = RGB(252, 218, 212), /* #FFDAD6 */ \
+    .superficie = RGB(28, 18, 20), /* #1A120D */ \
+    .sobre_superficie = RGB(236, 222, 212), /* #F0DFD7 */ \
+    .sobre_superficie_variante = RGB(212, 194, 180), /* #D7C2B8 */ \
+    .superficie_contenedor_minimo = RGB(20, 14, 12), /* #140D08 */ \
+    .superficie_contenedor_bajo = RGB(36, 26, 28), /* #221A15 */ \
+    .superficie_contenedor = RGB(44, 30, 28), /* #271E19 */ \
+    .superficie_contenedor_alto = RGB(52, 42, 36), /* #312823 */ \
+    .superficie_contenedor_maximo = RGB(60, 54, 44), /* #3D332D */ \
+    .contorno = RGB(156, 142, 132), /* #9F8D84 */ \
+    .contorno_variante = RGB(84, 70, 60), /* #52443C */ \
+    .superficie_inversa = RGB(236, 222, 212), /* #F0DFD7 */ \
+    .sobre_superficie_inversa = RGB(60, 46, 44), /* #382E29 */ \
+    .primario_inverso = RGB(140, 82, 44), /* #8C4F27 */ \
+    .velo = RGB(4, 2, 4), /* #000000 */ \
+}

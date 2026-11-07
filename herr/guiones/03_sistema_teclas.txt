@@ -1,0 +1,55 @@
+# Sistema (información en vivo) y Teclas (probador)
+tecla sel_izq
+espera 300
+app Sistema
+espera 1100
+captura 01_sistema
+tecla vol-
+tecla vol-
+espera 1100
+captura 02_sistema_abajo
+tecla sel_izq
+espera 50
+captura 03_reiniciar_pregunta
+tecla sel_der
+tecla atras
+espera 100
+# (28-oct) Teclas ya no es de fábrica («ya no tiene sentido», el mantenedor): se sube a la Memoria y se abre por su ruta
+memoria-app teclas.sen
+sen /memoria/apps/teclas.sen
+captura 04_teclas
+pulsa 5
+espera 100
+captura 05_teclas_5
+suelta 5
+pulsa walkman
+pulsa vol+
+espera 100
+captura 06_teclas_dos_a_la_vez
+suelta walkman
+suelta vol+
+tecla ok
+tecla sel_izq
+pulsa atras
+espera 500
+captura 07_teclas_atras_medio
+espera 800
+captura 08_fuera_al_menu
+suelta atras
+app Lo que falta
+captura 09_lo_que_falta
+tecla abajo
+tecla ok
+espera 50
+captura 10_lo_que_falta_detalle_sms
+tecla ok
+tecla abajo 3
+tecla ok
+espera 50
+captura 11_lo_que_falta_detalle_mp3
+tecla ok
+tecla atras
+tecla atras
+espera 100
+captura 12_standby
+medidas fin

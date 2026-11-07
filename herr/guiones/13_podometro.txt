@@ -1,0 +1,80 @@
+# El podómetro como SERVICIO del sistema (pista S2, shell/pasos.c): cuenta en segundo plano —en el standby, con la
+# pantalla apagada— y el standby enseña el contador. La marcha es la del acelerómetro simulado del PC: 1,8 pasos/s
+# con ±7 cuentas sobre Y = 125 + 18. De fábrica: podómetro SÍ, ahorro en reposo NO (el sensor no duerme).
+pasos
+espera 1000
+captura 01_standby_contador_a_cero
+andar 18 7
+espera 20000
+andar 0 0
+pasos
+tecla c
+espera 1200
+captura 02_standby_tras_20_s_andando
+# 32 s sin teclas: la pantalla se apaga (a los 30). Y a andar a oscuras.
+espera 32000
+captura 03_pantalla_apagada
+andar 18 7
+espera 20000
+andar 0 0
+pasos
+tecla c
+espera 1200
+captura 04_ha_contado_con_la_pantalla_apagada
+# Ajustes: las dos filas del podómetro, al final de la lista (arriba desde la primera da la vuelta)
+tecla sel_izq
+espera 300
+app Ajustes
+tecla arriba
+espera 300
+captura 05_ajustes_podometro
+# ahorro: de «no» a «fiel al original» (sale el aviso que lo explica)
+tecla ok
+espera 400
+captura 06_ahorro_fiel
+tecla ok
+espera 300
+# y a «corregido»
+tecla ok
+espera 400
+captura 07_ahorro_corregido
+tecla ok
+espera 300
+tecla sel_der
+espera 300
+tecla sel_der
+espera 300
+# 50 s quieto en el standby: a los 46 s sin candidatos entra a vigilar y duerme el sensor
+espera 50000
+pasos
+tecla c
+espera 300
+tecla sel_izq
+espera 300
+app Sistema
+tecla arriba
+espera 1200
+captura 08_sistema_sensor_dormido
+tecla sel_der
+espera 300
+tecla sel_der
+espera 300
+# echar a andar con el sensor en «vigilar»: despierta solo y cuenta (cuántos pierde depende de dónde caiga)
+andar 18 7
+espera 25000
+andar 0 0
+pasos
+# apagar el podómetro: el standby deja de enseñar el contador y el sensor no se toca más
+podometro no
+acelerometro
+espera 5000
+acelerometro
+pasos
+tecla c
+espera 1200
+captura 09_standby_sin_podometro
+# y encendido otra vez, como venía de fábrica
+podometro sin-ahorro
+espera 1200
+captura 10_standby_con_podometro
+pasos

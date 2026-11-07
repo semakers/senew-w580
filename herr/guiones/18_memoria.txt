@@ -1,0 +1,207 @@
+# (I1) LA MEMORIA (W6F): la carpeta nueva con carpetas, en Archivos. Sin FS de solo lectura (make probar): la raíz tiene
+# «usuario» y «memoria». Crear una carpeta, copiar a ella un fichero de Mis archivos (Copiar + Pegar aquí, con la barra),
+# propiedades, verlo como texto, cortarlo y pegarlo en la raíz de la Memoria (mover), borrar la carpeta vacía, espacio libre,
+# y lo que no se puede (borrar una carpeta con algo dentro, nombre repetido). La orden «memoria» vuelca el árbol con una suma.
+usr 2 5000
+memoria al empezar
+tecla sel_izq
+espera 300
+app Archivos
+captura 01_raiz_con_la_memoria
+# (APX) en la raíz hay ahora una carpeta más, «apps» (las utilidades de fábrica): un «abajo» más
+tecla abajo
+tecla abajo
+tecla ok
+espera 200
+captura 02_memoria_vacia
+# Nueva carpeta «fo»
+tecla sel_izq
+espera 50
+captura 03_opciones_de_la_memoria
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla ok
+espera 300
+tecla 3
+tecla 3
+tecla 3
+espera 1000
+tecla 6
+tecla 6
+tecla 6
+espera 1000
+captura 04_nombre_de_la_carpeta
+tecla sel_izq
+espera 300
+captura 05_carpeta_creada
+memoria con la carpeta
+# a Mis archivos: copiar el primero
+tecla atras
+espera 100
+tecla arriba
+tecla ok
+espera 200
+tecla sel_izq
+espera 50
+captura 06_opciones_de_mis_archivos
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla ok
+espera 200
+captura 07_copiado_al_portapapeles
+tecla ok
+espera 50
+# «Ir a la Memoria» (la última opción) y entrar en la carpeta
+tecla sel_izq
+espera 50
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla ok
+espera 200
+tecla ok
+espera 200
+captura 08_dentro_de_fo
+tecla sel_izq
+espera 50
+captura 09_opciones_con_pegar
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla ok
+espera 1500
+captura 10_pegado
+tecla ok
+espera 50
+memoria tras pegar
+# NO SE PUEDE: borrar «fo» con algo dentro
+tecla atras
+espera 200
+captura 10a_tras_subir
+# (tras la barra de la copia la lista se queda SIN foco —también en Mis archivos, de antes—: una flecha lo devuelve; docs/sistema.md §18)
+tecla abajo
+tecla sel_izq
+espera 50
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla ok
+espera 100
+# (AUD7 B5) la confirmación empieza en «No»: arriba = «Sí»
+tecla arriba
+tecla ok
+espera 200
+captura 10b_no_vacia
+tecla ok
+espera 400
+captura 10c_tras_el_aviso
+tecla abajo
+tecla ok
+espera 300
+captura 10d_dentro_otra_vez
+tecla sel_izq
+espera 50
+tecla ok
+espera 50
+captura 11_propiedades
+tecla ok
+espera 50
+tecla sel_izq
+espera 50
+tecla abajo
+tecla ok
+espera 300
+captura 12_como_texto
+tecla atras
+espera 100
+# cortar y pegar en la raíz de la Memoria
+tecla sel_izq
+espera 50
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla ok
+espera 50
+tecla ok
+espera 50
+tecla atras
+espera 200
+tecla sel_izq
+espera 50
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla ok
+espera 300
+captura 13_movido_a_la_raiz
+memoria tras mover
+# borrar la carpeta (ya vacía): está la primera
+tecla arriba
+espera 50
+captura 13b_la_carpeta_elegida
+tecla sel_izq
+espera 50
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla ok
+espera 100
+captura 14_borrar_la_carpeta
+# (AUD7 B5) la confirmación de borrar empieza en «No»: arriba = «Sí»
+tecla arriba
+tecla ok
+espera 300
+captura 15_carpeta_borrada
+memoria tras borrar la carpeta
+tecla sel_izq
+espera 50
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla ok
+espera 100
+captura 16_espacio
+tecla ok
+espera 50

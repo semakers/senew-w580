@@ -1,0 +1,15 @@
+# La app de ejemplo de docs/sistema.md (no está en el menú: el guion la abre directamente)
+# (APX) ahora es el ejemplo del SDK (apps_ext/ejemplo): se sube a la Memoria y «ejemplo» la abre de ahí
+memoria-app ejemplo.sen
+ejemplo
+captura 01_ejemplo
+tecla ok
+tecla ok
+tecla ok
+tecla sel_izq
+espera 2100
+captura 02_tres_vueltas_y_luz
+tecla c
+tecla atras
+espera 300
+captura 03_fuera

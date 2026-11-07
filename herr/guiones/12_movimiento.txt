@@ -1,0 +1,56 @@
+# Movimiento (W580i): el acelerómetro en vivo y el contador de pasos, con el acelerómetro SIMULADO del PC.
+# La marcha es la de la prueba de cordura de la pista H2 (tools/h2_podometro.py): teléfono vertical (gravedad en
+# Y, +18 cuentas), 1,8 pasos por segundo con ±7 cuentas. A 25 muestras por segundo, 30 s de marcha = 54 pasos.
+tecla sel_izq
+espera 400
+captura 01_menu_con_movimiento
+app Movimiento
+espera 600
+captura 02_quieto_vertical
+# tumbado: sin gravedad en ningún eje no hay eje de trabajo
+acel 126 127
+espera 3000
+captura 03_tumbado_sin_eje
+# de pie otra vez y a andar
+acel 125 143
+espera 2500
+andar 18 7
+espera 3000
+captura 04_primeros_pasos_sin_contar
+espera 27000
+captura 05_treinta_segundos_andando
+andar 0 0
+espera 4000
+captura 06_parado
+# una sacudida: la postura salta 20 cuentas a un lado y a otro cada 40 ms
+acel 145 143
+espera 40
+acel 105 143
+espera 40
+acel 145 143
+espera 40
+acel 105 143
+espera 40
+acel 145 143
+espera 40
+acel 105 143
+espera 40
+acel 145 143
+espera 40
+acel 105 143
+espera 40
+acel 125 143
+espera 80
+captura 07_sacudida
+espera 1500
+# a cero
+tecla sel_izq
+espera 300
+captura 08_a_cero
+acelerometro
+medidas movimiento
+tecla sel_der
+espera 400
+tecla sel_der
+espera 400
+captura 09_standby

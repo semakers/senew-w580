@@ -1,0 +1,266 @@
+# El menú 3D (pista V, docs/menu3d.md) con el acelerómetro SIMULADO del PC.
+# La postura de partida del PC es «acel 125 143» (vertical: la gravedad, +18 cuentas en Y). «Plano» se toma al
+# abrir el menú, así que inclinar es alejarse de ahí: +8 cuentas con la intensidad 3 dan ~15°, +10 el tope (18°).
+# Las capturas se llaman por lo que HACE el guion (qué se inyecta), no por lo que debería verse.
+espera 300
+tecla sel_izq
+espera 700
+captura 01_walkman_acel_125_143
+inclina  recien abierto
+medidas menu 3d quieto
+# --- inclinar: X +8, X -8, Y +8, Y -8, las dos a la vez, y a medio camino (una foto a los 80 ms de mover)
+acel 133 143
+espera 80
+captura 02_walkman_x+8_a_los_80ms
+espera 800
+captura 03_walkman_x+8
+inclina  x+8
+acel 117 143
+espera 900
+captura 04_walkman_x-8
+acel 125 151
+espera 900
+captura 05_walkman_y+8
+acel 125 135
+espera 900
+captura 06_walkman_y-8
+acel 133 135
+espera 900
+captura 07_walkman_x+8_y-8
+inclina  x+8 y-8
+# --- una cuenta de ruido alrededor de «plano» no mueve nada (zona muerta): 2 s alternando 125/126
+acel 125 143
+espera 900
+medidas antes del ruido
+acel 126 143
+espera 80
+acel 125 143
+espera 80
+acel 126 143
+espera 80
+acel 125 144
+espera 80
+acel 126 143
+espera 80
+acel 125 143
+espera 600
+inclina  tras el ruido de 1 cuenta
+medidas despues del ruido
+# --- el foco por la rejilla
+tecla der
+espera 400
+captura 08_tras_der
+tecla abajo
+espera 400
+captura 09_tras_der_abajo
+tecla abajo
+tecla abajo
+tecla der
+espera 400
+captura 10_tras_abajo_abajo_der
+tecla abajo
+espera 400
+captura 11_tras_abajo
+# --- abrir con OK: una foto a media animación (60 ms) y otra ya en la app; volver
+tecla arriba
+tecla arriba
+tecla arriba
+espera 300
+tecla ok
+espera 60
+captura 12_abriendo_a_los_60ms
+espera 500
+captura 13_dentro_de_la_app
+tecla atras
+espera 60
+captura 14_volviendo_a_los_60ms
+espera 500
+captura 15_de_vuelta
+# --- «Actividad» recalibra: con el teléfono inclinado, plano pasa a ser esa postura
+acel 133 143
+espera 900
+tecla web
+espera 900
+captura 16_x+8_tras_recalibrar
+inclina  recalibrado en x+8
+acel 125 143
+espera 100
+tecla web
+espera 600
+# --- ESTILO por la pantalla de Ajustes de verdad (fila 18 de la lista, 17 «abajo»): Cristal
+app Ajustes
+espera 300
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+espera 200
+captura 17_ajustes_menu
+tecla ok
+espera 200
+captura 18_ajustes_estilo_cristal
+tecla atras
+espera 700
+captura 19_cristal_acel_125_143
+acel 133 143
+espera 900
+captura 20_cristal_x+8
+acel 117 143
+espera 900
+captura 21_cristal_x-8
+acel 125 151
+espera 900
+captura 22_cristal_y+8
+acel 125 135
+espera 900
+captura 23_cristal_y-8
+acel 125 143
+espera 600
+tecla abajo
+tecla der
+espera 400
+captura 24_cristal_tras_abajo_der
+tecla abajo
+tecla abajo
+espera 400
+captura 25_cristal_tras_abajo_abajo
+tecla arriba
+tecla arriba
+tecla arriba
+tecla izq
+espera 300
+# --- Neón
+menu 3 0 3 0
+espera 700
+captura 26_neon_acel_125_143
+acel 133 143
+espera 900
+captura 27_neon_x+8
+acel 117 143
+espera 900
+captura 28_neon_x-8
+acel 125 151
+espera 900
+captura 29_neon_y+8
+acel 125 135
+espera 900
+captura 30_neon_y-8
+acel 125 143
+espera 600
+tecla der
+tecla der
+tecla abajo
+tecla abajo
+espera 400
+captura 31_neon_tras_der_der_abajo_abajo
+tecla abajo
+tecla izq
+tecla izq
+espera 400
+captura 32_neon_tras_abajo_izq_izq
+# --- Clásico: el menú de antes. Se cambia DESDE Ajustes, abierta con su atajo y su animación (como haría el usuario)
+tecla *
+espera 500
+menu 0 0 3 0
+tecla atras
+espera 500
+captura 33_clasico
+tecla der
+espera 300
+captura 34_clasico_foco
+# (en clásico se abre una app y se vuelve: viniendo del 3D con una app abierta por su animación, el clásico
+#  no puede heredar un «a medio abrir» — fallo visto en el emulador y arreglado)
+tecla ok
+espera 500
+captura 34b_clasico_dentro_de_la_app
+tecla atras
+espera 400
+tecla 9
+espera 500
+captura 34c_clasico_atajo_9
+tecla atras
+espera 400
+# --- los ejes: cruzados e invertidos (X+8 con ejes «Y -X» debe inclinar en vertical, no a los lados)
+menu 1 0 3 6
+espera 600
+acel 133 143
+espera 900
+captura 35_walkman_x+8_con_ejes_cruzados
+inclina  x+8 con ejes 6
+acel 125 143
+espera 600
+# --- intensidad 1 y 5 con la misma inclinación (X +4)
+menu 1 0 1 0
+espera 300
+acel 129 143
+espera 900
+captura 36_x+4_intensidad_1
+inclina  x+4 intensidad 1
+menu 1 0 5 0
+espera 900
+captura 37_x+4_intensidad_5
+inclina  x+4 intensidad 5
+acel 125 143
+espera 600
+# --- vaivén: sin sensor, se mueve solo; dos fotos separadas 2 s
+menu 1 1 3 0
+espera 1500
+captura 38_vaiven_a
+espera 2000
+captura 39_vaiven_b
+inclina  vaiven
+# --- quieto: tras el cambio de foco no se pinta NADA (los cuadros no suben en 3 s, salvo el reloj de la barra)
+menu 1 2 3 0
+espera 600
+tecla der
+espera 600
+medidas quieto: antes
+espera 3000
+medidas quieto: 3 s despues
+captura 40_quieto
+# --- el sensor solo se retiene con el menú a la vista: con el podómetro apagado, lecturas en el standby = 0
+menu 1 0 3 0
+podometro no
+tecla atras
+espera 500
+acelerometro
+espera 3000
+acelerometro
+tecla sel_izq
+espera 3000
+acelerometro
+inclina  menu abierto con el podometro apagado
+tecla atras
+espera 3000
+acelerometro
+podometro sin-ahorro
+# --- la pantalla se apaga a los 30 s sin teclas: el menú deja de animar y suelta el sensor
+tecla sel_izq
+espera 2000
+medidas menu: pantalla encendida
+inclina  pantalla encendida
+espera 31000
+medidas menu: pantalla apagada
+inclina  pantalla apagada
+espera 5000
+medidas menu: 5 s mas a oscuras
+tecla 0
+espera 900
+captura 41_tras_encender
+inclina  tras encender
+tecla atras
+espera 400
+captura 42_standby

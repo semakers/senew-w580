@@ -1,0 +1,176 @@
+# SONIDO (pista S5): el volumen, el tono de referencia, el clic de las teclas, la batería baja,
+# la cuenta atrás y LA ALARMA. Con W600_WAV_TONO=fichero.wav el PC escribe la onda del zumbador con el
+# mismo modelo que el emulador de S4 (cuadrada de amplitud fija, ancho = periodo * ciclo / 200), así que
+# `audio/herr/onda.py` la mide. La orden «sonido» imprime la traza de lo que se le pidió al generador.
+#
+# OJO con la navegación (me costó una tanda entera de capturas mentirosas): «app X» pulsa el ATAJO de X,
+# así que solo vale DESDE EL MENÚ. Al salir de una app con «atras» se cae en el menú, no en el standby;
+# desde el standby hay que pulsar antes «sel_izq». Cada tramo dice abajo dónde está.
+
+# [standby] -> menú -> Ajustes
+tecla sel_izq
+espera 300
+app Ajustes
+espera 400
+captura 01_ajustes
+# bajar hasta «Volumen» (tema, hora, zona, brillo, VOLUMEN)
+tecla abajo
+tecla abajo
+tecla abajo
+tecla abajo
+espera 200
+captura 02_volumen
+# izq./der. cambian el nivel y cada cambio SUENA (el la4 de referencia, un segundo)
+tecla der
+espera 1200
+captura 03_volumen_5
+tecla izq
+espera 1200
+tecla izq
+espera 1200
+tecla izq
+espera 1200
+captura 04_volumen_2
+tecla der
+espera 1200
+tecla der
+espera 1200
+captura 05_volumen_4
+# tono de las teclas: la fila siguiente
+tecla abajo
+espera 200
+captura 06_tono_teclas
+tecla ok
+espera 400
+tecla ok
+espera 400
+captura 07_tono_teclas_si
+# el tono de referencia: la última fila de Ajustes
+tecla abajo 11
+espera 300
+captura 08_fila_probar_el_tono
+tecla ok
+espera 1400
+captura 09_tono_de_referencia
+tecla ok
+espera 300
+# [Ajustes] -> menú
+tecla atras
+espera 400
+
+# --- batería baja (S7: en mV; se sondea cada 10 s y cuenta la media de dos): el aviso suena UNA vez --- [menú]
+bateria 3480
+espera 21000
+captura 10_bateria_baja
+tecla ok
+espera 300
+# sigue baja: no vuelve a avisar
+espera 21000
+captura 11_bateria_baja_sin_repetir
+# el cargador NO rearma nada (este sistema no carga): avisa de que no carga, y suena
+cargador 1
+espera 1200
+captura 11b_cargador_no_carga
+tecla ok
+espera 300
+cargador 0
+bateria 3925
+espera 21000
+
+# --- la cuenta atrás: 5 s y avisa sonando --- [menú] -> Reloj
+app Reloj
+espera 400
+captura 12_reloj
+tecla abajo
+tecla abajo
+tecla ok
+espera 300
+captura 13_temporizador
+tecla 0
+tecla der
+tecla 0
+tecla 5
+tecla sel_izq
+espera 300
+captura 14_temporizador_corriendo
+# [temporizador] -> Reloj -> menú -> standby
+tecla atras
+tecla atras
+tecla atras
+espera 6000
+captura 15_temporizador_avisa
+# cualquier tecla la calla (la traza lo enseña: «off» antes de la repetición)
+tecla ok
+espera 500
+captura 16_temporizador_callado
+
+# --- bloqueo y desbloqueo: dos sonidos distintos --- [standby]
+tecla bloqueo
+espera 500
+captura 17_bloqueado
+tecla bloqueo
+espera 500
+captura 18_desbloqueado
+
+# --- LA ALARMA --- [standby] -> menú -> Reloj: poner el reloj a las 07:59 y la alarma a las 08:00
+tecla sel_izq
+espera 300
+app Reloj
+espera 400
+tecla ok
+espera 300
+tecla 0
+tecla 7
+tecla der
+tecla 5
+tecla 9
+tecla der
+tecla 2
+tecla 4
+tecla der
+tecla 1
+tecla 2
+tecla der
+tecla arriba
+tecla sel_izq
+espera 300
+captura 19_hora_puesta
+# el diálogo «Puesto a las…» hay que CERRARLO: si no, las teclas siguientes se las queda él y la alarma
+# se queda sin activar (me pasó, y la captura «alarma suena» enseñaba el standby tan contento).
+tecla ok
+espera 400
+captura 19b_reloj_en_hora
+# [Reloj] la alarma es la cuarta fila
+tecla abajo
+tecla abajo
+tecla abajo
+tecla ok
+espera 300
+tecla 0
+tecla 8
+tecla der
+tecla 0
+tecla 0
+tecla sel_izq
+espera 200
+captura 20_alarma_puesta
+# [alarma] -> Reloj -> menú -> standby
+tecla atras
+tecla atras
+tecla atras
+espera 200
+captura 21_standby_con_alarma
+# son las 07:59:xx: hay que esperar a que pase el minuto. De paso la pantalla se apaga sola (30 s) y la
+# alarma la vuelve a ENCENDER (sh_insistir), como ya comprobó S3.
+espera 40000
+captura 22_pantalla_apagada_esperando
+espera 35000
+captura 23_alarma_suena
+# la alarma se REPITE hasta que alguien pulse algo
+espera 4000
+captura 24_alarma_insiste
+tecla ok
+espera 500
+captura 25_alarma_callada
+sonido
+medidas fin

@@ -1,0 +1,8 @@
+Teclas
+sel. izq.  accion principal u Opciones
+sel. der.  volver
+OK         activar
+C          borrar o volver
+En el menu: 1..9 * 0 # abren las 12 entradas.
+En Ajustes: izq./der. cambian la zona horaria y el brillo.
+En el editor de notas: # cambia abc/Abc/ABC/123, mantener un digito lo escribe.

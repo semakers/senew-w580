@@ -1,0 +1,74 @@
+# Lo que pasa cuando SALTA UNA ALARMA con una app externa en pantalla, y el reinicio de sus estáticos (pista S6).
+#   make pc APPS_EXT=herr/app_ext_ejemplo B=build/con_ext
+#   ./build/con_ext/sistema_pc herr/app_ext_ejemplo/guion_avisos_pc.txt evidencia/pc_app_ext_avisos
+# [standby] -> menú -> Reloj: reloj a las 07:59 y alarma a las 08:00 (como en guiones/10_sonido.txt)
+espera 400
+tecla sel_izq
+espera 300
+app Reloj
+espera 400
+tecla ok
+espera 300
+tecla 0
+tecla 7
+tecla der
+tecla 5
+tecla 9
+tecla der
+tecla 2
+tecla 4
+tecla der
+tecla 1
+tecla 2
+tecla der
+tecla arriba
+tecla sel_izq
+espera 300
+tecla ok
+espera 400
+tecla abajo
+tecla abajo
+tecla abajo
+tecla ok
+espera 300
+tecla 0
+tecla 8
+tecla der
+tecla 0
+tecla 0
+tecla sel_izq
+espera 200
+captura a01
+# [alarma] -> Reloj -> menú
+tecla atras
+tecla atras
+espera 400
+captura a02
+# primera entrada a la app externa (12.ª celda, «#»)
+tecla #
+espera 500
+captura a03
+# dentro: esperar a que pase el minuto. La alarma salta DENTRO de la app.
+espera 62000
+captura a04
+espera 9000
+captura a05
+# salir manteniendo Atrás
+pulsa atras
+espera 1500
+suelta atras
+espera 800
+captura a06
+tecla ok
+espera 400
+captura a07
+# segunda entrada: los estáticos tienen que volver a 100 y 0 (sale por la UART = stderr)
+tecla #
+espera 800
+pulsa atras
+espera 1500
+suelta atras
+espera 600
+captura a08
+sonido
+medidas fin
