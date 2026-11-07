@@ -255,10 +255,16 @@ $(B)/flash-sin-fs.bin: $(B)/sistema.bin herr/hacer_flash.py
 # ficheros uno a uno (hay nombres con espacios y make parte las dependencias por los espacios).
 # fs_propio/apps/*.sen son las utilidades de fábrica, compiladas desde sus repositorios públicos (github.com/semakers/senew-app-*).
 # Las mallas de los iconos 3D del menú se hacen por programa; el .h generado está en el árbol.
-shell/mallas3d.h: herr/hacer_mallas.py
+shell/mallas3d.h: | herr/hacer_mallas.py
 	@mkdir -p tmp; python3 herr/hacer_mallas.py > $@.tmp 2> tmp/mallas.log && mv $@.tmp $@
-fs_propio/docs/LEEME.txt: herr/hacer_contenido.py
+# fs_propio/ (fondos, imágenes, textos) ya está en el repositorio: solo se regenera si falta LEEME.txt (la dependencia del guion es
+# «solo de orden»: tras un `git clone` las fechas son arbitrarias y no debe volver a generarse). `make contenido` lo regenera
+# a propósito (necesita Pillow: `pip install pillow`).
+fs_propio/docs/LEEME.txt: | herr/hacer_contenido.py
 	python3 herr/hacer_contenido.py fs_propio
+contenido:
+	python3 herr/hacer_contenido.py fs_propio
+.PHONY: contenido
 $(B)/fs.lst: FORCE fs_propio/docs/LEEME.txt | $(B)
 	@python3 -c "import os,sys;print(''.join(sorted('%s|%d|%.6f\n'%(p,os.path.getsize(p),os.path.getmtime(p)) for d,_,fs in os.walk('fs_propio') for p in [os.path.join(d,f) for f in fs])),end='')" > $@.tmp; cmp -s $@.tmp $@ || mv $@.tmp $@; rm -f $@.tmp
 $(B)/fs_w580.bin: fs_propio/docs/LEEME.txt $(B)/fs.lst herr/hacer_fs.py | $(B)

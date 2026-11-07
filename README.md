@@ -60,7 +60,8 @@ Tested on **macOS 26 (Apple silicon)** with:
   <https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads> — on Linux, your distribution's `gcc-arm-none-eabi`
   (a recent one) or the same Arm release for x86_64/aarch64;
 * **GNU make 4.x** (macOS ships 3.81: `brew install make` and put `$(brew --prefix make)/libexec/gnubin` first in `PATH`);
-* **Python 3.8+** (3.9.6 tried), standard library only;
+* **Python 3.8+** (3.9.6 tried), standard library only for the normal build (Pillow, `pip install pillow`, is only needed to regenerate
+  generated assets: `make contenido`, `herr/diseno/*.py`; their results are already in the tree);
 * **git** (once, to fetch BTstack).
 
 ```sh
@@ -225,7 +226,7 @@ Probado en **macOS 26 (Apple silicon)** con:
   <https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads> — en Linux, el `gcc-arm-none-eabi` de tu distribución
   (uno reciente) o la misma versión de Arm para x86_64/aarch64;
 * **GNU make 4.x** (macOS trae la 3.81: `brew install make` y pon `$(brew --prefix make)/libexec/gnubin` delante en el `PATH`);
-* **Python 3.8+** (probado con 3.9.6), solo la biblioteca estándar;
+* **Python 3.8+** (probado con 3.9.6), solo la biblioteca estándar (Pillow, `pip install pillow`, solo hace falta para regenerar assets generados: `make contenido`, `herr/diseno/*.py`; sus resultados ya están en el árbol);
 * **git** (una vez, para traer BTstack).
 
 ```sh
